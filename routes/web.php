@@ -9,9 +9,14 @@ Route::get('/', function () {
 });
 
 // Paginaa de reserva de pista
-Route::get("/calendario", [ReservaController::class, 'index']);
+Route::get('/calendario', function()
+{
+    return view('calendario');
+});
 
 Route::get("/calendario/1", [ReservaController::class, 'reservasSemanal']);
 
 Route::get("/carruselProductos", [InventarioController::class, 'index']);
+
+Route::get("/reservaDia/{fecha}", [ReservaController::class, 'reservasSemanal']);
 ?>

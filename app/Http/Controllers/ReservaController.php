@@ -1,6 +1,7 @@
 <?php
     namespace App\Http\Controllers;
     use App\Models\Reserva;
+    use App\Models\Pista;
     use Illuminate\Http\Request;
     use App\Http\Controllers\Controller;
 
@@ -12,38 +13,36 @@
             return view('calendario', compact('reservas'));
         }
 
-// Que la funcion devuelva una array con las horas ocupadas y las libres poniendo true o false dependiendo si esta ocupada ho no
-// Que henvie los datos de dos semanas y hacemos los calculos
+/**
+ * @reservasSemanal
+ */
         public function reservasSemanal(Request $request)
         {
-            $operturapadeling = date('Y-m-d') . ' ' . '08:00:00';
+            $operturapadeling = $request->fecha . ' ' . '08:00:00';
 
             $horaInicial = new \DateTime($operturapadeling);
 
-            $calendario = [];
-            
-            for($cont = 0;$cont <14;$cont++)
+            $pistasHorarios = []; // Guardaremos el horario de un dia de cada pista en este array
+            $pistas = Pista::all('IDPista'); // Cojemos todos los id's de las pistas
+
+            foreach($pistas as $pista)
             {
+                $calendario = [];
                 for($cont2 = 0;$cont2<13;$cont2++)
                 {
                     $reserva = Reserva::where('FInicio', '<=', $horaInicial)
                         ->where('FFinal', '>', $horaInicial)
+                        ->where('Pista', '=', $pista['IDPista'])
                         ->get();
-                    if(!$reserva->isEmpty())
-                    {
-                        $calendario[] = 'Reservado';
-                    }
-                    else
-                    {
-                        $calendario[] = 'libre';
-                    }
+                    $calendario[] = ['estado' => $reserva->isEmpty() ? 'Libre' : 'Reservado', 'fecha_hora' => $horaInicial->format('Y-m-d H:i'),];
                     $horaInicial->modify('+1 hours');
                 }
                 $horaInicial->modify('-13 hours');
-                $horaInicial->modify('+1 day');
+                $pistasHorarios[$pista['IDPista']] = $calendario;
             }
 
-            return view('calendario', compact('calendario'));
-        }
+            return response()->json($pistasHorarios);
+            //return view('calendario', compact('calendario'));
+        } 
     }
 ?>
