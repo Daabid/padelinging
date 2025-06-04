@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Inventario extends Model
 {
-    protected $table = 'Inventario';
+    protected $table = "Inventario";
     protected $primaryKey = 'IDProducto';
 
+    protected $fillable = ['IDProducto', 'Tipo', 'Precio', 'URL'];
     public $incrementing = true;
     protected $keyType = 'int';
 }
