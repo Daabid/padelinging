@@ -8,6 +8,10 @@ class Pista extends Model
 {
     protected $table = "Pista";
     protected $fillable = ['IDPista', 'Tipo', 'Superficie', 'Estado', 'Precio'];
-}
 
+    public function getPrecioPista()
+    {
+        return $this->Precio;
+    }
+}
 ?> 
