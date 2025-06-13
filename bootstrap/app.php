@@ -11,8 +11,23 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        return [
+            'middleware' => [
+                \App\Http\Middleware\TrustProxies::class,
+                \Illuminate\Http\Middleware\HandleCors::class,
+                \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
+                \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+                \App\Http\Middleware\TrimStrings::class,
+            ],
+            'aliases' => [
+                'auth' => \App\Http\Middleware\Authenticate::class,
+                'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+                // Otros alias que uses
+            ],
+        ];
     })
+
+
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
