@@ -23,7 +23,7 @@
             $horaInicial = new \DateTime($operturapadeling);
 
             $pistasHorarios = []; // Guardaremos el horario de un dia de cada pista en este array
-            $pistas = Pista::all('IDPista'); // Cojemos todos los id's de las pistas
+            $pistas = Pista::all('IDPista', 'Precio'); // Cojemos todos los id's de las pistas
 
             foreach($pistas as $pista)
             {
@@ -34,7 +34,7 @@
                         ->where('FFinal', '>', $horaInicial)
                         ->where('Pista', '=', $pista['IDPista'])
                         ->get();
-                    $calendario[] = ['estado' => $reserva->isEmpty() ? 'Libre' : 'Reservado', 'fecha_hora' => $horaInicial->format('Y-m-d H:i'),];
+                    $calendario[] = ['estado' => $reserva->isEmpty() ? 'Libre' : 'Reservado', 'fecha_hora' => $horaInicial->format('Y-m-d H:i'), 'IDpista' => $pista['IDPista'], 'Precio' => $pista['Precio']];
                     $horaInicial->modify('+1 hours');
                 }
                 $horaInicial->modify('-13 hours');
@@ -43,6 +43,30 @@
 
             return response()->json($pistasHorarios);
             //return view('calendario', compact('calendario'));
-        } 
+        }
+
+        public function realizarReserva(Request $request)
+        {
+            $usuario = $request->Usuario;
+            $pista = $request->Pista;
+            $alquiler = $request->Alquiler;
+            $FInicio = $request->FInicio;
+            $FFinal = $request->FFinal;
+            $id = Reserva::max('ID') +1;
+
+            $reserva = new Reserva([
+                'ID' => $id, 
+                'Usuario' => $usuario, 
+                'Pista' => $pista, 
+                'Alquiler' => $alquiler, 
+                'FInicio' => $FInicio, 
+                'FFinal' => $FFinal
+            ]);
+
+            $reserva->save();
+
+            // Opcional: retornar una respuesta
+            return response()->json(['message' => 'Reserva creada exitosamente', 'reserva' => $reserva], 201);
+        }
     }
 ?>
