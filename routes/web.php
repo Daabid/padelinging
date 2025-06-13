@@ -12,6 +12,7 @@
  */
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlquilerController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PistaController;
@@ -32,7 +33,7 @@ use App\Http\Controllers\CarritoController;
  * 
  * @route GET /
  * @return \Illuminate\View\View Vista de bienvenida
- */use App\Http\Controllers\AlquilerController;
+ */
 
 Route::get('/', function () {
     return view('welcome');
