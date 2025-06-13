@@ -275,14 +275,8 @@
         }
     </style>
 </head>
+@include('banner')
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">PadelReserva</div>
-            <a href="#" class="backButton" onclick="history.back()">← Volver</a>
-        </nav>
-    </header>
 
     <h1 class="pageTitle">Finalizar Reserva</h1>
 

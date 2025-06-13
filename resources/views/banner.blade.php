@@ -164,7 +164,7 @@
             </a>
             
             <ul class="menu">
-            <li><a href="{{ url('/welcome') }}">Inicio</a></li>
+            <li><a href="{{ url('/') }}">Inicio</a></li>
             <li><a href="{{ url('/catalogo') }}">Tienda</a></li>
             <li><a href="{{ url('/calendario') }}">Reservas</a></li>
             <li>

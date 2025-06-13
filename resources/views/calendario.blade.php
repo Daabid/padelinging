@@ -5,6 +5,7 @@
         <script defer src="{{ asset('js/calendario.js') }}"></script>
     </head>
     <body>
+        @include('banner')
         <style>
         * {
             margin: 0;
@@ -332,13 +333,7 @@
             }
         }
     </style>
-        <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">PadelReserva</div>
-            <a href="#" class="backButton" onclick="history.back()">← Volver</a>
-        </nav>
-    </header>
+
 
     <div class="mainContainer">
         <h1 class="pageTitle">Reservar Pista</h1>

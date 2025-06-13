@@ -315,19 +315,6 @@
 </head>
 @include("banner")
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">PadelReserva</div>
-            <ul class="nav-links">
-                <li><a href="#pistas">Pistas</a></li>
-                <li><a href="#precios">Precios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-            <a href="#login" class="cta-button">Iniciar Sesión</a>
-        </nav>
-    </header>
-
     <!-- Hero Section -->
     <section class="hero">
         <h1>Reserva tu Pista de Pádel</h1>
@@ -405,7 +392,7 @@
             // Manejar CTA button
             document.querySelector('.cta-button-large').addEventListener('click', function(e) {
                 e.preventDefault();
-                alert('Redirigiendo a la página de búsqueda de pistas...');
+                window.location.href = "/reserva";
             });
 
             // Smooth scroll para navegación
