@@ -322,8 +322,6 @@ Route::middleware('auth')->group(function () {
         return view('pago');
     });
 
-    Route::post('/reserva/pago/{Usuario}&&{Pista}&&{Alquiler}&&{FInicio}&&{FFinal}', [ReservaController::class, 'realizarReserva']);
-
     Route::get('/reserva/pago/realizado', function()
     {
         return view('pagorealizado');
@@ -336,6 +334,7 @@ Route::middleware('auth')->group(function () {
     Route::get("/pistaP/{pista}", [PistaController::class, 'getPrecio']);
 
     Route::post("/Alquiler/{Usuario}&&{FInicio}&&{FFinal}&&{Precio}", [AlquilerController::class, 'realizarAlquiler']);
+
 
 });
 

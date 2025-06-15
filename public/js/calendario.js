@@ -71,7 +71,7 @@ function llamarApi(fecha) {
               if(index !== -1){
                 selecciones.splice(index, 1);
                 td.style.backgroundColor = "#d4edda";
-                 td.innerHTML = "Libre";
+                td.innerHTML = "Libre";
 
               } 
               else{

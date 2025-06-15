@@ -181,7 +181,7 @@
             box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
         }
 
-        .calendario td.Ocupado {
+        .calendario td.Reservado {
             background: #f8d7da;
             color: #721c24;
             cursor: not-allowed;
