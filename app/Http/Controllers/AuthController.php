@@ -99,8 +99,8 @@ class AuthController extends Controller
         // Regenerar sesión por seguridad
         $request->session()->regenerate();
         
-        Log::info('Sesión regenerada, redirigiendo a calendario');
-        return redirect('/calendario');
+        Log::info('Sesión regenerada, redirigiendo al incio');
+        return redirect('/');
     }
 
     /**
@@ -153,7 +153,7 @@ class AuthController extends Controller
         
         // Regenerar sesión por seguridad
         $request->session()->regenerate();
-        return redirect('/catalogo');
+        return redirect('/');
     }
 
     /**
