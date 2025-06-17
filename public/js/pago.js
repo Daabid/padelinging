@@ -1,3 +1,21 @@
+ const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+const response = fetch('/api/Reserva', {
+    method: 'POST',
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+    },
+    body: JSON.stringify({
+        Usuario: "41514002Z",
+        Pista: 1,
+        Alquiler: 1,
+        FInicio: "2025-06-20 17:00:00",
+        FFinal: "2025-06-20 18:00:00"
+    })
+});
+console.log(response);
+
 /**
  * Script para gestión de formulario de pago - Padelinging
  * Maneja validaciones, formateo de campos y procesamiento de pagos

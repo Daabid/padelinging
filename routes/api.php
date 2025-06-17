@@ -14,3 +14,5 @@ use App\Http\Controllers\ReservaController;
 Route::post('/Alquiler', [AlquilerController::class, 'realizarAlquiler']);
 
 Route::post('/Reserva', [ReservaController::class, 'realizarReserva']);
+
+Route::post('/Pistas', [PistaController::class, 'index']);

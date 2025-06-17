@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -334,6 +335,7 @@
     <section>
         <h2 class="section-title">Pistas Destacadas</h2>
         <div class="grid-container">
+           
             <div class="pista-card">
                 <div class="pista-imagen">🎾</div>
                 <div class="pista-nombre">Club Deportivo Madrid</div>
@@ -352,7 +354,7 @@
 
     <!-- Features Section -->
     <section class="features-section">
-        <h2 class="section-title">¿Por qué elegir PadelReserva?</h2>
+        <h2 class="section-title">¿Por qué elegir Padelinging?</h2>
         <div class="features-grid">
             <div class="feature-item">
                 <span class="feature-icon">⚡</span>
@@ -374,7 +376,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 PadelReserva. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Padelinging. Todos los derechos reservados.</p>
         <p>Contacto: info@padelreserva.com | Tel: 900 123 456</p>
     </footer>
 
