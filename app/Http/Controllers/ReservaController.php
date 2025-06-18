@@ -65,7 +65,7 @@
 
             $reserva->save();
 
-            // Opcional: retornar una respuesta
+            
             return response()->json(['message' => 'Reserva creada exitosamente', 'reserva' => $reserva], 201);
         }
     }

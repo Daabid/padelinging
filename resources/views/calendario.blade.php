@@ -213,11 +213,10 @@
             box-shadow: 0 2px 8px rgba(42, 157, 143, 0.3);
         }
 
-        /* Pista ocupada - no disponible */
-        .calendario td.Ocupado {
-            background: #f8d7da;   /* Rojo claro */
-            color: #721c24;        /* Rojo oscuro */
-            cursor: not-allowed;   /* Cursor de prohibido */
+        .calendario td.Reservado {
+            background: #f8d7da;
+            color: #721c24;
+            cursor: not-allowed;
             font-weight: 500;
         }
 

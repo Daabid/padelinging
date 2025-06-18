@@ -15,14 +15,12 @@ class AlquilerController extends Controller
 
     public function realizarAlquiler(Request $request)
         {
-            $id = Alquiler::max('ID') +1;
             $usuario = $request->Usuario;
             $FInicio = $request->FInicio;
             $FFinal = $request->FFinal; 
             $precio = $request->Precio;
 
             $alquiler = new Alquiler([
-                'ID' => $id, 
                 'Usuario' => $usuario, 
                 'FInicio' => $FInicio, 
                 'FFinal' => $FFinal,
